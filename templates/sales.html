@@ -1,0 +1,56 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="brython.js"></script>
+<script type="text/javascript" src="brython_stdlib.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body onload="brython(1)">
+<script type="text/python">
+from browser import document
+
+document <= "Hello"
+</script>
+<style>
+    .table-responsive
+    {
+        align:right;
+        float:right;
+
+    }
+    tr,th{
+        text-align:center;
+    }
+    
+</style>
+</body>
+{% if sale %}
+<p>SALES DATA</p>
+
+<div class="table-responsive col-lg-10">
+<table class="table table-striped table-hover table-bordered table-primary ">
+    <tr>
+        <th>sales_id</th>
+        <th>quantity</th>
+        <th>stock_name</th>
+        <th>price</th>
+
+    </tr>
+    {% for i in sale %}
+   <tr>
+       <td>{{i.sales_id}}</td>
+       <td>{{i.quantity_in_kg}}</td>
+       <td>{{i.stock_name}}</td>
+       <td>{{i.price_per_kg}}</td>
+   </tr> 
+   {% endfor %}
+
+</table>
+</div>
+{% else %}
+<p>NO DATA FOUND</p>
+{% endif %}
+</html>
